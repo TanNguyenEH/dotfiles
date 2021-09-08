@@ -1,0 +1,34 @@
+% herocli staging
+
+# Access to a staging app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app run-tty <app_name>
+
+# View status of a staging app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app status <app_name>
+
+# Restart a staging app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app restart <app_name>
+
+# List all staging apps
+HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app list --namespace <namespace>
+
+$ namespace: echo -e 'staging\nsandbox'
+$ server: echo 'hero2.staging.ehrocks.com:443'
+$ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server $server app list --namespace $namespace | awk -F '|' "/$(echo $namespace)/ {gsub(\" \", \"\", \$0); print \$2}"
+
+
+
+% herocli production
+
+# Access to a production app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server <server> app run-tty <app_name>
+
+# View status of a production app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server <server> app status <app_name>
+
+# List all production apps
+HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server <server> app list --namespace <namespace>
+
+$ namespace: echo -e 'application'
+$ server: echo 'hero2.ehrocks.com:443'
+$ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server $server app list --namespace $namespace | awk -F '|' "/$(echo $namespace)/ {gsub(\" \", \"\", \$0); print \$2}"
