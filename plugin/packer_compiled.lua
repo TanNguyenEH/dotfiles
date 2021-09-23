@@ -69,9 +69,21 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FTerm.nvim"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
+  },
   ["Navigator.nvim"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/Navigator.nvim"
+  },
+  fzf = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -80,10 +92,6 @@ _G.packer_plugins = {
   ["gv.vim"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/gv.vim"
-  },
-  hop = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/hop"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -113,6 +121,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
+  ["nvim-lsp-ts-utils"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/opt/nvim-lsp-ts-utils"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -141,13 +154,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["telescope-fzy-native.nvim"] = {
+  ["registers.nvim"] = {
     loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/registers.nvim"
   },
-  ["telescope.nvim"] = {
+  ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["tender.vim"] = {
     loaded = true,
@@ -157,6 +170,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-devicons"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -164,6 +181,10 @@ _G.packer_plugins = {
   ["vim-import-js"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-import-js"
+  },
+  ["vim-jsonnet"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-jsonnet"
   },
   ["vim-rails"] = {
     loaded = true,
@@ -184,10 +205,26 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-test"
   }
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript.tsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript.tsx" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript.jsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript.jsx" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

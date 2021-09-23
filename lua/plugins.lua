@@ -6,16 +6,12 @@ return require('packer').startup(function()
   use 'jacoborus/tender.vim'
   -- use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use "folke/tokyonight.nvim"
+  use "ryanoasis/vim-devicons"
+  use "kyazdani42/nvim-web-devicons"
 
   -- Search text, search file
-  -- use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
-  -- use 'junegunn/fzf.vim'
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use { 'nvim-telescope/telescope-fzy-native.nvim', run='git submodule update --init --recursive' }
-  use {'phaazon/hop.nvim', as = 'hop'}
+  use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
+  use 'junegunn/fzf.vim'
 
   -- File explorer
   use({
@@ -35,6 +31,9 @@ return require('packer').startup(function()
   use 'junegunn/gv.vim'
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
+  -- Terminal
+  use 'numtostr/FTerm.nvim'
+
   -- Language support
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
@@ -44,6 +43,20 @@ return require('packer').startup(function()
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
   use 'galooshi/vim-import-js'
+  use {
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+  }
+
+  -- Testing
+  use "vim-test/vim-test"
 
   -- Misc
   use 'windwp/nvim-autopairs'
@@ -52,4 +65,7 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'
   use 'numToStr/Navigator.nvim'
+  use "google/vim-jsonnet"
+  use 'simrat39/symbols-outline.nvim'
+  use 'tversteeg/registers.nvim'
 end)

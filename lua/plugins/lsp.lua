@@ -49,8 +49,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>:w<CR>', opts)
+  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', opts)
+  buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
+  buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
+
+  -- format on save
+  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 
   if client.name == 'solargraph' or client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
@@ -93,7 +98,7 @@ lspconfig.ocamlls.setup({
 lspconfig.rescriptls.setup({
   cmd = {
     'node',
-    '/Users/toannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
+    '/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
     '--stdio'
   },
 
@@ -142,8 +147,6 @@ lspconfig.efm.setup({
       typescriptreact = {prettier, eslint},
       ruby = {rubocop},
       json = {prettier, eslint},
-      ["javascript.jsx"] = {prettier, eslint},
-      ["typescript.tsx"] = {prettier, eslint},
     }
   },
 
