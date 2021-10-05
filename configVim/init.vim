@@ -22,7 +22,7 @@ Plug 'itchyny/lightline.vim'
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" JS support
+" Language support
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', {
@@ -31,30 +31,23 @@ Plug 'prettier/vim-prettier', {
 Plug 'dense-analysis/ale'
 Plug 'ap/vim-css-color'
 Plug 'galooshi/vim-import-js'
-
-" Ruby support
 Plug 'vim-ruby/vim-ruby'
-
-" Git support
 Plug 'tpope/vim-fugitive'
-
-" Flutter support
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+Plug 'airblade/vim-gitgutter'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " Test support
 Plug 'phthhieu/vim-test'
 Plug 'benmills/vimux'
 
 " Others
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
-
-" ReasonML
-Plug 'reasonml-editor/vim-reason-plus'
+Plug 'numtostr/FTerm.nvim'
 
 call plug#end()
 
@@ -261,7 +254,6 @@ let g:coc_global_extensions = [
 \ 'coc-snippets'
 \ ]
 " === END COC
-
 
 " Disable arrow keys
 noremap <up> <nop>

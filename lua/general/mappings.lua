@@ -7,7 +7,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map('i', 'jj', '<Esc>', { noremap = false }) -- Cancel insert mode
-map('n', '<Space>', ':') -- Open comman mode
 map('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>') -- Highlight word
 map('n', '<leader>l', ":noh<CR>") -- Cancel highligh word
 map('n', 'Y', 'y$') -- Copy from current cursor to end of the line
@@ -21,7 +20,7 @@ map('n', 'j', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {noremap = true, 
 
 
 map('n', '<leader>vc', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
-map('n', '<leader>cp', ":let @+=expand('%:p')<CR>", {noremap = true})
+map('n', '<leader>cp', ":let @+=expand('%')<CR>", {noremap = true})
 map('n', '<leader><leader>', '<C-^>', {noremap = true})
 map('n', '<leader>gf', '<C-w>vgf', {noremap = true})
 vim.cmd [[autocmd User Rails nmap <buffer> <leader>gf :vert sfind <Plug><cfile><CR>]]
