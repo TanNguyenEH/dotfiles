@@ -121,11 +121,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
-  ["nvim-lsp-ts-utils"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/opt/nvim-lsp-ts-utils"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -170,10 +165,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
-  ["vim-devicons"] = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-devicons"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -185,18 +176,6 @@ _G.packer_plugins = {
   ["vim-jsonnet"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-jsonnet"
-  },
-  ["vim-rails"] = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-rails"
-  },
-  ["vim-reason-plus"] = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-reason-plus"
-  },
-  ["vim-rescript"] = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript"
   },
   ["vim-rhubarb"] = {
     loaded = true,
@@ -213,18 +192,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript.tsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript.tsx" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript.jsx ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript.jsx" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "typescript" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 
   local opts = {noremap = true, silent = true}
 
-  buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 
   if client.name == 'solargraph' or client.name == 'tsserver' then
-    client.resolved_capabilities.document_formatting = true
+    client.resolved_capabilities.document_formatting = false
   end
 end
 
@@ -44,44 +44,6 @@ end
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150},
-})
-
--- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
--- unzip elixir-ls.zip -d /usr/local/bin/elixir-ls
--- chmod +x /usr/local/bin/elixir-ls/language_server.sh
-lspconfig.elixirls.setup({
-  cmd = {'/usr/local/bin/elixir-ls/language_server.sh'},
-  settings = {
-    ['elixirLS.dialyzerEnabled'] = true,
-    ['elixirLS.dialyzerFormat'] = 'dialyzer',
-    ['elixirLS.dialyzerWarnOpts'] = {},
-    ['elixirLS.fetchDeps'] = true,
-    ['elixirLS.mixEnv'] = 'test',
-    ['elixirLS.suggestSpecs'] = true,
-  },
-
-  on_attach = on_attach,
-  flags = {debounce_text_changes = 150}
-})
-
--- npm install -g ocaml-language-server
--- opam switch create 4.06.0
--- eval $(opam env)
--- opam install reason merlin
-lspconfig.ocamlls.setup({
-  on_attach = on_attach,
-  flags = {debounce_text_changes = 150}
-})
-
-lspconfig.rescriptls.setup({
-  cmd = {
-    'node',
-    '/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
-    '--stdio'
-  },
-
-  on_attach = on_attach,
-  flags = {debounce_text_changes = 150}
 })
 
 -- gem install solargraph
