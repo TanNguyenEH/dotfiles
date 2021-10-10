@@ -6,17 +6,22 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map('i', 'jj', '<Esc>', { noremap = false }) -- Cancel insert mode
+map('i', 'jj', '<Esc>', { noremap = false })
 map('n', '<Esc>', ':noh<CR>')
-map('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>') -- Highlight word
-map('n', 'Y', 'y$') -- Copy from current cursor to end of the line
-map('n', 'qq', ':q<CR>') -- Quite file by qq
+map('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>')
+map('n', 'Y', 'y$')
+map('n', 'qq', ':q<CR>')
 map('n', 'vwp', 'viw"0p')
 map('n', 'ss', ':w<CR>')
 
 -- Jumplist mutations
 map('n', 'k', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {noremap = true, expr = true})
 map('n', 'j', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {noremap = true, expr = true})
+
+-- Keeping it centered
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
+map('n', 'J', 'mzJ`z')
 
 
 map('n', '<leader>vc', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
