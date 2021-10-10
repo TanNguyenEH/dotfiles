@@ -3,13 +3,14 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  use "folke/tokyonight.nvim"
-  -- use "ryanoasis/vim-devicons"
+  -- use "folke/tokyonight.nvim"
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use "kyazdani42/nvim-web-devicons"
 
-  -- Search text, search file
+  -- Navigation
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use 'junegunn/fzf.vim'
+  use 'tpope/vim-projectionist'
 
   -- File explorer
   use({
@@ -35,6 +36,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'glepnir/lspsaga.nvim'
   use 'galooshi/vim-import-js'
+  use 'tpope/vim-rails'
 
   -- Testing
   use "vim-test/vim-test"

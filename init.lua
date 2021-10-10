@@ -5,7 +5,7 @@ local start_time = fn.reltime()
 require('general/settings')
 require('general/mappings')
 
-require('colorschemes/tokyonight')
+require('colorschemes/gruvbox')
 
 require('plugins')
 require('plugins/fzf')

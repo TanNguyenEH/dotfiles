@@ -7,8 +7,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map('i', 'jj', '<Esc>', { noremap = false }) -- Cancel insert mode
+map('n', '<Esc>', ':noh<CR>')
 map('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>') -- Highlight word
-map('n', '<leader>l', ":noh<CR>") -- Cancel highligh word
 map('n', 'Y', 'y$') -- Copy from current cursor to end of the line
 map('n', 'qq', ':q<CR>') -- Quite file by qq
 map('n', 'vwp', 'viw"0p')

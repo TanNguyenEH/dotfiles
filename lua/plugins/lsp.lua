@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 
   local opts = {noremap = true, silent = true}
 
-  buf_set_keymap('n', '<space>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 
   -- format on save
-  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 
   if client.name == 'solargraph' or client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false

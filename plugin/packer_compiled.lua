@@ -89,6 +89,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/gruvbox.nvim"
+  },
   ["gv.vim"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/gv.vim"
@@ -108,6 +112,10 @@ _G.packer_plugins = {
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/lush.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -161,10 +169,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/tender.vim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -176,6 +180,14 @@ _G.packer_plugins = {
   ["vim-jsonnet"] = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-jsonnet"
+  },
+  ["vim-projectionist"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-projectionist"
+  },
+  ["vim-rails"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/vim-rails"
   },
   ["vim-rhubarb"] = {
     loaded = true,
