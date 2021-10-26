@@ -1,3 +1,6 @@
 {
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.autoformat": true
 }

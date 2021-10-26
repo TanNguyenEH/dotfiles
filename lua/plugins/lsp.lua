@@ -32,9 +32,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
   buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 
-  -- format on save
-  -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-
   if client.name == 'solargraph' or client.name == 'tsserver' then
     client.resolved_capabilities.document_formatting = false
   end
@@ -65,17 +62,16 @@ local eslint = {
 }
 
 local rubocop = {
-  lintCommand = 'bundle exec rubocop --format emacs --force-exclusion --stdin ${INPUT}',
+  lintCommand = 'rubocop --format emacs --force-exclusion --stdin ${INPUT}',
   lintIgnoreExitCode = true,
   lintStdin = true,
   lintFormats = {'%f:%l:%c: %t: %m'},
-  formatCommand = 'bundle exec rubocop --auto-correct --force-exclusion --stdin ${INPUT} 2>/dev/null | sed "1,/^====================$/d"',
+  formatCommand = 'rubocop --auto-correct --force-exclusion --stdin ${INPUT} 2>/dev/null | sed "1,/^====================$/d"',
   formatStdin = true,
 }
 
 -- brew install efm-langserver
 -- npm install -g eslint_d
--- npm install -g prettier
 lspconfig.efm.setup({
   init_options = {documentFormatting = true, codeAction = true},
   filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json'},

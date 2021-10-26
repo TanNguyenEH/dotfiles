@@ -10,7 +10,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter' " comment code
 Plug 'easymotion/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " Seaching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -27,14 +27,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown',  'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown',  'yaml', 'html', 'ruby'] }
 Plug 'dense-analysis/ale'
 Plug 'ap/vim-css-color'
 Plug 'galooshi/vim-import-js'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
 Plug 'airblade/vim-gitgutter'
 Plug 'reasonml-editor/vim-reason-plus'
 
@@ -47,7 +45,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'numtostr/FTerm.nvim'
 
 call plug#end()
 
@@ -94,19 +91,7 @@ let g:NERDTreeLimitedSyntax = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeShowHidden = 1
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
-" Toggle NERDTree
-let NERDTreeShowHidden = 1
-function! OpenNerdTree()
-  if exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
-    NERDTreeFind
-  else
-    NERDTreeToggle
-  endif
-endfunction
-
-nnoremap <silent> <leader>n :call OpenNerdTree()<CR>
-nnoremap <silent> <leader>N :NERDTreeToggle<CR>
+nnoremap <silent> <space>n :NERDTreeToggle<CR>
 
 " Commenter configs
 let g:NERDCompactSexyComs = 1
@@ -189,37 +174,22 @@ noremap <leader>gb :Gblame<cr>
 " Import JS config
 nmap <leader>i :ImportJSFix<cr>
 
-" Dart config
-let g:dart_format_on_save = 1
-
-
 " ==== START COC config
 "" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
-
-" TextEdit might fail if hidden is not set.
 set hidden
-
-" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
-" set nowritebackup
-" You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-
-" don't give |ins-completion-menu| messages.
 set shortmess+=c
-
-" always show signcolumns
 set signcolumn=yes
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> fm <Plug>(coc-format)
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -238,29 +208,8 @@ endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-command! -nargs=0 Format :call CocAction('format')
-
 let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-snippets'
 \ ]
 " === END COC
-
-" Disable arrow keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
