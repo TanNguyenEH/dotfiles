@@ -9,7 +9,7 @@ end
 map('i', 'jj', '<Esc>', { noremap = false })
 map('n', '<Esc>', ':noh<CR>')
 map('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>')
-map('n', 'yy', 'y$')
+map('n', 'Y', 'y$')
 map('n', 'qq', ':q<CR>')
 map('n', 'ss', ':w<CR>')
 
