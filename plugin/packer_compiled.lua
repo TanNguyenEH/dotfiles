@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/Navigator.nvim"
   },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/feline.nvim"
+  },
   fzf = {
     loaded = true,
     path = "/Users/tannguyen/.local/share/nvim/site/pack/packer/start/fzf"

@@ -3,7 +3,6 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  -- use "folke/tokyonight.nvim"
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use "kyazdani42/nvim-web-devicons"
 
@@ -25,6 +24,7 @@ return require('packer').startup(function()
   use { 'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+  use 'famiu/feline.nvim'
 
   -- Git support
   use 'tpope/vim-fugitive'
@@ -42,9 +42,6 @@ return require('packer').startup(function()
 
   -- Testing
   use "vim-test/vim-test"
-
-  -- Syntax
-  use 'mhartington/formatter.nvim'
 
   -- Misc
   use 'windwp/nvim-autopairs'
