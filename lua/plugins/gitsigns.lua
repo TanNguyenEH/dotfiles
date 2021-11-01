@@ -2,7 +2,7 @@ require('gitsigns').setup({
   signs = {
     add = {
       hl = 'GitSignsAdd',
-      text = '+',
+      text = ' ',
       numhl = 'GitSignsAddNr',
       linehl = 'GitSignsAddLn',
     },
@@ -14,7 +14,7 @@ require('gitsigns').setup({
     },
     delete = {
       hl = 'GitSignsDelete',
-      text = '_',
+      text = ' ',
       numhl = 'GitSignsDeleteNr',
       linehl = 'GitSignsDeleteLn',
     },

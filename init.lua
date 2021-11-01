@@ -22,5 +22,8 @@ require('plugins/kommentary')
 require('plugins/colorizer')
 require('plugins/blankline')
 require('plugins/fterm')
+require('plugins/vim-rooter')
+require('plugins/vim-startify')
+require('plugins/lazygit')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')

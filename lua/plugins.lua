@@ -5,6 +5,7 @@ return require('packer').startup(function()
   use 'jacoborus/tender.vim'
   use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
   use "kyazdani42/nvim-web-devicons"
+  use 'ryanoasis/vim-devicons'
 
   -- Navigation
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
@@ -24,13 +25,13 @@ return require('packer').startup(function()
   use { 'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  use 'famiu/feline.nvim'
 
   -- Git support
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use 'kdheepak/lazygit.nvim'
 
   -- Language support
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -44,6 +45,8 @@ return require('packer').startup(function()
   use "vim-test/vim-test"
 
   -- Misc
+  use 'airblade/vim-rooter'
+  use 'mhinz/vim-startify'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'norcalli/nvim-colorizer.lua'
@@ -54,4 +57,5 @@ return require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use 'tversteeg/registers.nvim'
   use 'numtostr/FTerm.nvim'
+  use 'wfxr/minimap.vim'
 end)

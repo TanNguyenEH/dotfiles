@@ -10,14 +10,6 @@ vim.api.nvim_exec(
 'let startify_bookmarks = [ {\'d\': \'~/Dev\'}, {\'w\': \'~/DevWeb\'}, {\'c\': \'~/.config/nvim/init.lua\'}, {\'p\': \'~/.config/nvim/lua/plugins.lua\'}, {\'z\': \'~/.zshrc\'}]',
 true
 )
-vim.g.startify_custom_header = {
-  '    ███╗   ██╗██╗   ██╗      ██╗██████╗ ███████╗',
-  '    ████╗  ██║██║   ██║      ██║██╔══██╗██╔════╝',
-  '    ██╔██╗ ██║██║   ██║█████╗██║██║  ██║█████╗  ',
-  '    ██║╚██╗██║╚██╗ ██╔╝╚════╝██║██║  ██║██╔══╝  ',
-  '    ██║ ╚████║ ╚████╔╝       ██║██████╔╝███████╗',
-  '    ╚═╝  ╚═══╝  ╚═══╝        ╚═╝╚═════╝ ╚══════╝'
-}
 vim.api.nvim_exec(
 'let startify_lists = [ { \'type\': \'bookmarks\', \'header\': [\'  Bookmarks\']      }, { \'type\': \'files\',     \'header\': [\'  MRU Files\']            }, { \'type\': \'dir\',       \'header\': [\'  MRU Files in \'. getcwd()] }, { \'type\': \'commands\',  \'header\': [\'  Commands\'] } ]',
 true

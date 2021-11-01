@@ -1,5 +1,16 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
+vim.g.nvim_tree_auto_ignore_ft = 'startify'
+vim.g.nvim_tree_quit_on_open = 1
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_width = 30
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_root_folder_modifier = ":~"
+vim.g.nvim_tree_width_allow_resize = 1
+vim.g.nvim_tree_add_trailing = 1
+vim.g.nvim_tree_group_empty = 1
+vim.g.nvim_tree_disable_window_picker = 1
+
 require('nvim-tree').setup({
   disable_netrw       = true,
   hijack_netrw        = true,
@@ -9,6 +20,8 @@ require('nvim-tree').setup({
   open_on_tab         = false,
   hijack_cursor       = true,
   update_cwd          = false,
+  nvim_tree_hide_dotfiles = false,
+  nvim_tree_ignore = { "node_modules" },
   update_focused_file = {
     enable      = true,
     update_cwd  = true,
@@ -53,19 +66,6 @@ require('nvim-tree').setup({
   }
 })
 
-vim.g.nvim_tree_ignore = { "node_modules", ".cache" }
-
-vim.g.nvim_tree_ignore = { "node_modules" }
-vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_hide_dotfiles = 0
-vim.g.nvim_tree_width = 30
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_root_folder_modifier = ":~"
-vim.g.nvim_tree_width_allow_resize = 1
-vim.g.nvim_tree_add_trailing = 1
-vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_disable_window_picker = 1
 
 vim.api.nvim_set_keymap('n', '<space>n', ':NvimTreeToggle<CR>', {noremap = true})
 
