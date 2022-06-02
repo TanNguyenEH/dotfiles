@@ -18,16 +18,16 @@ o.shiftwidth = 2
 o.softtabstop = 2
 o.expandtab = true
 o.colorcolumn = '80'
+-- o.listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·'
+o.listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<'
 o.list = true
 o.scrolloff = 10
-o.regexpengine = 1
-o.completeopt = 'menuone,noselect'
+-- o.regexpengine = 1
+o.completeopt = 'menu,menuone,noselect'
+o.clipboard = o.clipboard .. 'unnamedplus'
 o.lazyredraw = true
 o.termguicolors = true
 o.background = 'dark'
-o.clipboard = o.clipboard .. 'unnamedplus'
-o.mouse = 'a'
-o.breakindent = true
 
 g.mapleader = ','
 
@@ -37,3 +37,4 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
+

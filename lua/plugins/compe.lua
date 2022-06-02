@@ -21,6 +21,7 @@ require('compe').setup({
     nvim_lua = true,
     vsnip = false,
     ultisnips = false,
+    neorg = true,
   },
 })
 
@@ -33,7 +34,7 @@ local check_back_space = function()
   if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
     return true
   else
-    return flse
+    return false
   end
 end
 
@@ -59,3 +60,4 @@ vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+

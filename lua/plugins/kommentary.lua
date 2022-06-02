@@ -7,3 +7,4 @@ vim.api.nvim_set_keymap('v', '<leader>c', '<Plug>kommentary_visual_default<Esc>'
 require('kommentary.config').configure_language('default', {
   prefer_single_line_comments = true,
 })
+

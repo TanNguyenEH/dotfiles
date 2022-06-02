@@ -4,3 +4,4 @@ vim.cmd [[autocmd ColorScheme * highlight LspDiagnosticsDefaultInformation guifg
 vim.cmd [[autocmd ColorScheme * highlight LspDiagnosticsDefaultHint guifg=#666666]]
 
 vim.cmd [[colorscheme tender]]
+

@@ -6,7 +6,8 @@ require('Navigator').setup({
   disable_on_zoom = false,
 })
 
-map('n', '<C-h>', '<CMD>lua require("Navigator").left()<CR>', opts)
-map('n', '<C-j>', '<CMD>lua require("Navigator").down()<CR>', opts)
-map('n', '<C-k>', '<CMD>lua require("Navigator").up()<CR>', opts)
-map('n', '<C-l>', '<CMD>lua require("Navigator").right()<CR>', opts)
+map('n', '<C-w>h', '<CMD>lua require("Navigator").left()<CR>', opts)
+map('n', '<C-w>j', '<CMD>lua require("Navigator").down()<CR>', opts)
+map('n', '<C-w>k', '<CMD>lua require("Navigator").up()<CR>', opts)
+map('n', '<C-w>l', '<CMD>lua require("Navigator").right()<CR>', opts)
+

@@ -4,3 +4,4 @@ require('colorizer').setup({
   'html',
   'reason',
 })
+

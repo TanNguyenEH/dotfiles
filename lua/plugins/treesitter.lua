@@ -1,16 +1,35 @@
-local ts = require "nvim-treesitter.configs"
-ts.setup {
-  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'elixir', 'cpp'},
+local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_configs.norg = {
+  install_info = {
+    url = 'https://github.com/nvim-neorg/tree-sitter-norg',
+    files = {'src/parser.c', 'src/scanner.cc'},
+    branch = 'main'
+  }
+}
+
+parser_configs.org = {
+  install_info = {
+    url = 'https://github.com/milisims/tree-sitter-org',
+    files = {'src/parser.c', 'src/scanner.cc'},
+    revision = 'main'
+  },
+  filetype = 'org'
+}
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'norg', 'org', 'cpp', 'rust'},
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = {'org'},
   },
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      scope_incremental = 'grc',
+      node_decremental = 'grm',
     },
   },
   refactor = {
@@ -29,8 +48,21 @@ ts.setup {
       },
     },
   },
-}
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+  },
+})
 
 vim.o.foldenable = false
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+

@@ -26,3 +26,4 @@ g.ale_fixers = {
 g.ale_ruby_rubocop_executable = 'bundle'
 
 api.nvim_set_keymap('n', '<leader>af', '<Plug>(ale_fix)', {noremap = false, silent = false})
+
